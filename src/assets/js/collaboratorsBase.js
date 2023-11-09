@@ -1,26 +1,26 @@
 export const collaboratorsBase = [
   {
     id: "1",
-    name: "JuanSoto",
+    name: "Juan Soto",
     email: "juans@colaborador.com",
     age: "23",
-    position: "DesarrolladorFrontEnd",
+    position: "Desarrollador FrontEnd",
     phone: "99887766",
   },
   {
     id: "2",
-    name: "LucasPailamilla",
+    name: "Lucas Pailamilla",
     email: "lucasp@colaborador.com",
     age: "31",
-    position: "DesarrolladorBackend",
+    position: "Desarrollador Backend",
     phone: "88779955",
   },
   {
     id: "3",
-    name: "DiegoRiquelme",
+    name: "Diego Riquelme",
     email: "diegor@colaborador.com",
     age: "28",
-    position: "IngenieroDevOps",
+    position: "Ingeniero DevOps",
     phone: "99226644",
   },
 ];
