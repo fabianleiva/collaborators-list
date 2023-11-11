@@ -87,7 +87,7 @@ const Form = ({ setError, data, setData }) => {
         <div className="form-group">
           <label></label>
           <input
-            type="email"
+            type="text"
             name="email"
             className="form-control"
             onChange={setChanges}
@@ -129,7 +129,7 @@ const Form = ({ setError, data, setData }) => {
             placeholder="Teléfono del colaborador"
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="addButton btn btn-primary">
           Añadir colaborador
         </button>
       </form>
