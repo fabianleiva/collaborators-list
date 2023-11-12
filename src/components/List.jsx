@@ -1,7 +1,16 @@
 import Table from "react-bootstrap/Table";
-import { FaTrashCan } from 'react-icons/fa6';
+import { FaTrashCan } from "react-icons/fa6";
 
-const List = ({ data }) => {
+const List = ({ data, setData, dataFiltered, setDataFiltered }) => {
+  
+  const removeCollaborator = (collaborator) => {
+    const newData = [...data];
+    const index = newData.findIndex((e) => e.name === collaborator.name);
+    newData.splice(index, 1);
+    setData(newData);
+    setDataFiltered(newData);
+  };
+
   return (
     <div>
       <Table responsive>
@@ -17,7 +26,7 @@ const List = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((collaborator) => (
+          {dataFiltered.map((collaborator) => (
             <tr key={collaborator.id}>
               <td>{collaborator.id}</td>
               <td>{collaborator.name}</td>
@@ -27,7 +36,12 @@ const List = ({ data }) => {
               <td>{collaborator.phone}</td>
               <td>
                 <div className="removeButtonContainer">
-                  <button className="removeButton" ><FaTrashCan className="icon" /></button>
+                  <button
+                    className="removeButton"
+                    onClick={() => removeCollaborator(collaborator)}
+                  >
+                    <FaTrashCan className="icon" />
+                  </button>
                 </div>
               </td>
             </tr>
