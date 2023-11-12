@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Form = ({ setError, data, setData }) => {
+const Form = ({ setError, data, setData, setDataFiltered }) => {
   const [formData, setFormData] = useState({
     id: "",
     name: "",
@@ -43,20 +43,19 @@ const Form = ({ setError, data, setData }) => {
       return;
     }
 
-    console.log(data)
-
-    setData([
+    const newData = [
       ...data,
       {
-        id: data.length + 1,
+        id: Number(data[data.length - 1].id) + 1,
         name: formData.name,
         email: formData.email,
         age: formData.age,
         position: formData.position,
         phone: formData.phone,
       },
-    ]);
-
+    ];
+    setData(newData)
+    setDataFiltered(newData);
     setFormData({
       name: "",
       email: "",
