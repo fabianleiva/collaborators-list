@@ -1,43 +1,28 @@
-import React, { useState } from "react";
-
-function Search({ dataFiltered, setDataFiltered }) {
-  const [seachText, setSearchText] = useState("");
-
+const Search = ({ data, setDataFiltered }) => {
   const handleChange = (e) => {
-    setSearchText(e.target.value);
-  };
+    const seachedText = e.target.value.toLowerCase();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const result = dataFiltered.filter((collaborator) => {
-      return collaborator.name.toLowerCase().includes(seachText.toLowerCase());
+    const result = data.filter((collaborator) => { 
+      return(
+      collaborator.name.toLowerCase().includes(seachedText) ||
+        collaborator.email.toLowerCase().includes(seachedText) ||
+        collaborator.age.toString().toLowerCase().includes(seachedText) ||
+        collaborator.position.toLowerCase().includes(seachedText) ||
+        collaborator.phone.toString() .toLowerCase().includes(seachedText));
     });
-
     setDataFiltered(result);
   };
-
   return (
     <div className="searchBar">
-      {/* <input
-      className="form-control"
+      <input
+        id="searcher"
         type="text"
-        placeholder="Buscar..."
-        value={seachText}
+        name="searcher"
+        placeholder="Buscar . . ."
+        className="form-control mb-4"
         onChange={handleChange}
       />
-      <button className="searchButton btn btn-primary" type="submit" onClick={handleSubmit}>
-        Buscar
-      </button> */}
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Buscar . . ."
-        />
-      </div>
     </div>
   );
-}
-
+};
 export default Search;
